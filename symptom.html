@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Symptoms Management</title>
+    <!-- Add any necessary CSS stylesheets or links to frameworks here -->
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+        .container {
+            width: 80%;
+            margin: 50px auto;
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        h1, h2 {
+            color: #333;
+        }
+
+        form {
+            margin-bottom: 20px;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 5px;
+        }
+
+        select, textarea {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            box-sizing: border-box;
+            resize: none;
+        }
+
+        button {
+            padding: 10px 20px;
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #0056b3;
+        }
+
+        ul {
+            list-style-type: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        li {
+            margin-bottom: 10px;
+            padding: 10px;
+            background-color: #f9f9f9;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+    <h1>Symptoms Management</h1>
+    
+    <!-- Form for adding new symptoms -->
+    <h2>Add New Symptom</h2>
+    <form id="add-symptom-form">
+        <label for="symptom-dropdown">Select Symptom:</label>
+        <select id="symptom-dropdown" name="symptom-dropdown">
+            <option value="Fever">Fever</option>
+            <option value="Cough">Cough</option>
+            <option value="Headache">Headache</option>
+            <!-- Add more options as needed -->
+        </select><br><br>
+        
+        <label for="symptom-description">Description:</label><br>
+        <textarea id="symptom-description" name="symptom-description" rows="4" cols="50"></textarea><br><br>
+        
+        <button type="submit">Add Symptom</button>
+    </form>
+    
+    <!-- Section for displaying existing symptoms -->
+    <h2>Existing Symptoms</h2>
+    <ul id="existing-symptoms-list">
+        <!-- Existing symptoms will be dynamically added here -->
+        <!-- Example: -->
+        <!-- <li>Fever - Body temperature above 100°F</li> -->
+        <!-- <li>Cough - Persistent dry cough</li> -->
+    </ul>
+    
+    <!-- Add any necessary JavaScript scripts here -->
+    <script>
+        // Add your JavaScript code here
+        // This is just a basic example
+        
+        // Example JavaScript to handle form submission
+        document.getElementById("add-symptom-form").addEventListener("submit", function(event) {
+            event.preventDefault(); // Prevent the form from submitting normally
+            
+            // Get form data
+            var symptomName = document.getElementById("symptom-dropdown").value;
+            var symptomDescription = document.getElementById("symptom-description").value;
+            
+            // TODO: Perform any necessary validation
+            
+            // TODO: Send the data to the server using AJAX or other methods
+            
+            // Example: Add the new symptom to the list
+            var symptomsList = document.getElementById("existing-symptoms-list");
+            var newSymptomItem = document.createElement("li");
+            newSymptomItem.textContent = symptomName + " - " + symptomDescription;
+            symptomsList.appendChild(newSymptomItem);
+            
+            // TODO: Clear the form fields or provide feedback to the user
+        });
+        
+        // Example JavaScript to populate existing symptoms (Replace with actual data)
+        // You can populate this list dynamically using backend integration
+        var existingSymptoms = [
+            "Fever - Body temperature above 100°F",
+            "Cough - Persistent dry cough",
+            "Headache - Frequent headaches",
+            // Add more symptoms as needed
+        ];
+        
+        var symptomsList = document.getElementById("existing-symptoms-list");
+        existingSymptoms.forEach(function(symptom) {
+            var symptomItem = document.createElement("li");
+            symptomItem.textContent = symptom;
+            symptomsList.appendChild(symptomItem);
+        });
+        
+    </script>
+    </div>
+</body>
+</html>
